@@ -1,0 +1,103 @@
+set nocompatible
+
+" Set up vundle
+
+let has_vundle=1
+if !filereadable($HOME."/.vim/bundle/Vundle.vim/README.md")
+    echo "Installing Vundle..."
+    echo ""
+    silent !mkdir -p $HOME/.vim/bundle
+    silent !git clone https://github.com/gmarik/Vundle.vim $HOME/.vim/bundle/Vundle.vim
+    let has_vundle=0
+endif
+
+
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'fatih/vim-go'
+Plugin 'Shougo/neocomplete.vim'
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'bling/vim-bufferline'
+Plugin 'Shougo/neosnippet.vim'
+Plugin 'Shougo/neosnippet-snippets'
+Plugin 'Raimondi/delimitMate'
+Plugin 'scrooloose/syntastic'
+Plugin 'Lokaltog/vim-easymotion'
+
+call vundle#end()
+
+filetype indent plugin on
+
+syntax on
+
+colorscheme jellybeans
+"set background=dark
+"set t_Co=256
+
+let g:neocomplete#enable_at_startup = 1
+
+set hidden
+set wildmenu
+set showcmd
+set hlsearch
+
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+      \ "\<Plug>(neosnippet_expand_or_jump)"
+      \: pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+      \ "\<Plug>(neosnippet_expand_or_jump)"
+      \: "\<TAB>"
+
+if has('conceal')
+    set conceallevel=2 concealcursor=i
+  endif
+
+set ignorecase
+set smartcase
+
+set backspace=indent,eol,start
+set autoindent
+set nostartofline
+set ruler
+set laststatus=2
+set confirm
+set visualbell
+set t_vb=
+set mouse=a
+set cmdheight=2
+set number
+
+set notimeout ttimeout ttimeoutlen=200
+set pastetoggle=<F1>
+
+set shiftwidth=2
+set tabstop=2
+
+map Y y$
+
+nnoremap <C-L> :nohl<CR><C-L>
+
+set foldcolumn=0 " hide folding column
+set foldnestmax=10 " max 10 nested folds
+set foldlevelstart=99 " folds open by default
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+vnoremap <Space> zf
+
+filetype indent plugin on
+
+inoremap {<cr> {<cr>}<c-o>O
+"inoremap [<cr> [<cr>]<c-o>O
+"inoremap (<cr> (<cr>)<c-o>O)]}
+
+let mapleader = ","
