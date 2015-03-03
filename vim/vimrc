@@ -1,7 +1,5 @@
 set nocompatible
 
-" Set up vundle
-
 let has_vundle=1
 if !filereadable($HOME."/.vim/bundle/Vundle.vim/README.md")
     echo "Installing Vundle..."
@@ -18,6 +16,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
+Plugin 'itchyny/lightline.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'fatih/vim-go'
 Plugin 'Shougo/neocomplete.vim'
@@ -36,8 +35,6 @@ filetype indent plugin on
 syntax on
 
 colorscheme jellybeans
-"set background=dark
-"set t_Co=256
 
 let g:neocomplete#enable_at_startup = 1
 
@@ -88,16 +85,20 @@ map Y y$
 
 nnoremap <C-L> :nohl<CR><C-L>
 
-set foldcolumn=0 " hide folding column
-set foldnestmax=10 " max 10 nested folds
-set foldlevelstart=99 " folds open by default
+set foldcolumn=0
+set foldnestmax=10
+set foldlevelstart=99 
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
 
 filetype indent plugin on
 
 inoremap {<cr> {<cr>}<c-o>O
-"inoremap [<cr> [<cr>]<c-o>O
-"inoremap (<cr> (<cr>)<c-o>O)]}
 
 let mapleader = ","
+
+
+let g:bufferline_active_buffer_left = '['
+let g:bufferline_active_buffer_right = ']'
+let g:bufferline_modified = '+'
+let g:bufferline_show_bufnr = 1
