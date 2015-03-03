@@ -26,6 +26,7 @@ Plugin 'Shougo/neosnippet-snippets'
 Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/syntastic'
 Plugin 'Lokaltog/vim-easymotion'
+Plugin 'tpope/vim-fugitive'
 
 call vundle#end()
 
