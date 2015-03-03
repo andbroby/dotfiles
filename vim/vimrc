@@ -16,7 +16,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
-Plugin 'itchyny/lightline.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'fatih/vim-go'
 Plugin 'Shougo/neocomplete.vim'
@@ -96,9 +95,3 @@ filetype indent plugin on
 inoremap {<cr> {<cr>}<c-o>O
 
 let mapleader = ","
-
-
-let g:bufferline_active_buffer_left = '['
-let g:bufferline_active_buffer_right = ']'
-let g:bufferline_modified = '+'
-let g:bufferline_show_bufnr = 1
