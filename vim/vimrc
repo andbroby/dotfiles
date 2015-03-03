@@ -78,8 +78,10 @@ set number
 set notimeout ttimeout ttimeoutlen=200
 set pastetoggle=<F1>
 
-set shiftwidth=2
-set tabstop=2
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4
+set expandtab
 
 map Y y$
 
@@ -96,3 +98,8 @@ filetype indent plugin on
 inoremap {<cr> {<cr>}<c-o>O
 
 let mapleader = ","
+
+nnoremap gn :bnext<CR>
+nnoremap gN :bprevious<CR>
+nnoremap gd :bdelete<CR>
+nnoremap gf <C-^>
