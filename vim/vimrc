@@ -103,3 +103,7 @@ nnoremap gn :bnext<CR>
 nnoremap gN :bprevious<CR>
 nnoremap gd :bdelete<CR>
 nnoremap gf <C-^>
+
+let g:netrw_liststyle=3
+let g:netrw_browse_split = 4
+map <leader>k :Lexplore<cr> 
