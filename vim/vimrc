@@ -40,8 +40,6 @@ colorscheme jellybeans
 let g:neocomplete#enable_at_startup = 1
 
 set hidden
-set wildmenu
-set showcmd
 set hlsearch
 
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -63,11 +61,7 @@ if has('conceal')
 
 set ignorecase
 set smartcase
-set backspace=indent,eol,start
-set autoindent
 set nostartofline
-set ruler
-set laststatus=2
 set confirm
 set visualbell
 set t_vb=
@@ -106,3 +100,4 @@ autocmd VimEnter *
 
 let g:netrw_liststyle=3
 map <leader>k :Explore<cr> 
+
