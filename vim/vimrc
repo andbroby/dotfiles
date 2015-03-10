@@ -27,6 +27,7 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/syntastic'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-sensible'
 
 call vundle#end()
 
@@ -62,7 +63,6 @@ if has('conceal')
 
 set ignorecase
 set smartcase
-
 set backspace=indent,eol,start
 set autoindent
 set nostartofline
@@ -74,32 +74,35 @@ set t_vb=
 set mouse=a
 set cmdheight=2
 set number
-
 set notimeout ttimeout ttimeoutlen=200
 set pastetoggle=<F1>
-
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
 set expandtab
-
-map Y y$
-
-nnoremap <C-L> :nohl<CR><C-L>
-
 set foldcolumn=0
 set foldnestmax=10
 set foldlevelstart=99 
-nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
-vnoremap <Space> zf
 
-filetype indent plugin on
-
-inoremap {<cr> {<cr>}<c-o>O
+map Y y$
 
 let mapleader = ","
 
+nnoremap <C-L> :nohl<CR><C-L>
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+vnoremap <Space> zf
 nnoremap gn :bnext<CR>
 nnoremap gN :bprevious<CR>
 nnoremap gd :bdelete<CR>
 nnoremap gf <C-^>
+inoremap {<cr> {<cr>}<c-o>O
+
+
+
+let g:bufferline_echo = 0
+autocmd VimEnter *
+    \ let &statusline='%{bufferline#refresh_status()}'
+        \ .bufferline#get_status_string()
+
+let g:netrw_liststyle=3
+map <leader>k :Explore<cr> 
