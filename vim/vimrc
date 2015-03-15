@@ -95,3 +95,4 @@ let g:netrw_browse_split = 4
 map <leader>k :Explore<cr> 
 
 let g:python_host_prog='/usr/bin/python'
+let g:ycm_path_to_python_interpreter = '/usr/bin/python'
