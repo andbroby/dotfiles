@@ -19,6 +19,11 @@ if sys.platform == "darwin" and raw_input('Do you want to configure homebrew? y/
             sys.stdout.write("Installing {}\n".format(package))
             os.system("brew install {} > /dev/null 2>&1".format(package))
 
+    sys.stdout.write("Installing neovim... \n")
+    os.system("brew tap neovim/homebrew-neovim")
+    os.system("brew install --HEAD neovim")
+    os.system("pip install neovim")
+
     do_you_want = 'Do you want to install {}? y/n: '
     if raw_input(do_you_want.format('Firefox')) == 'y':
         sys.stdout.write('Installing firefox...\n')
@@ -36,15 +41,15 @@ sys.stdout.write("Setting up vim... \n")
 os.chdir("../vim")
 VIM_DIR = os.path.abspath(os.curdir)
 try:
-    os.symlink(os.path.join(VIM_DIR, "vimrc"), os.path.join(HOME_DIR,  ".vimrc"))
+    os.symlink(os.path.join(VIM_DIR, "vimrc"), os.path.join(HOME_DIR,  ".nvimrc"))
 except OSError:
-    os.rename(os.path.join(HOME_DIR, ".vimrc"), os.path.join(HOME_DIR, ".vimrc.OLD"))
-    os.symlink(os.path.join(VIM_DIR, "vimrc"), os.path.join(HOME_DIR, ".vimrc"))
+    os.rename(os.path.join(HOME_DIR, ".nvimrc"), os.path.join(HOME_DIR, ".nvimrc.OLD"))
+    os.symlink(os.path.join(VIM_DIR, "vimrc"), os.path.join(HOME_DIR, ".nvimrc"))
 try:
-    os.symlink(VIM_DIR, os.path.join(HOME_DIR, ".vim"))
+    os.symlink(VIM_DIR, os.path.join(HOME_DIR, ".nvim"))
 except OSError:
-    os.rename(os.path.join(HOME_DIR, ".vim"), os.path.join(HOME_DIR, ".vim.OLD"))
-    os.symlink(VIM_DIR, os.path.join(HOME_DIR, ".vim"))
+    os.rename(os.path.join(HOME_DIR, ".nvim"), os.path.join(HOME_DIR, ".nvim.OLD"))
+    os.symlink(VIM_DIR, os.path.join(HOME_DIR, ".nvim"))
 
 sys.stdout.write('Setting up git...\n')
 os.chdir('../git')
