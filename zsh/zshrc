@@ -92,4 +92,7 @@ if [ -d "$GHC_DOT_APP" ]; then
 fi
 
 alias mux=tmuxinator
+alias vim=nvim
 source ~/.bin/tmuxinator.zsh
+
+bindkey -v
